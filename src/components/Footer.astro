@@ -1,0 +1,62 @@
+---
+const year = new Date().getFullYear()
+---
+
+<footer>
+    <span>Yarden Regev</span>
+    <ul>
+        <li><a href="https://www.linkedin.com/in/yarden-regev-6613261b7" target="_blank">Linkedin</a></li>
+        <li><a href="https://github.com/Yardenregev/Projects" target="_blank">Github</a></li>
+        <li class="contact-btn"><a href="mailto:yardenregev11@gmail.com">Email me!</a></li>
+    </ul>
+</footer>
+
+<style>
+    footer {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+        width: calc(100% - 40px);
+        border-top: 1px solid rgb(30, 30, 30, 0.3);
+        text-align: center;
+        padding: 20px;
+    }
+
+    footer > ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        list-style: none;
+        gap: 30px;
+        padding: 0;
+    }
+
+    footer > ul > li > a {
+        color: #1e1e1e;
+        transition: all .3s;
+    }
+
+    footer > ul > li > a:hover {
+        color: orange;
+    }
+
+    footer > ul > .contact-btn {
+        background-color: #1e1e1e;
+        background: linear-gradient(160deg, rgb(59, 59, 59) 10%, rgba(30,30,30,1) 100%);
+        padding: 5px 10px;
+        border-radius: 12px;
+        font-weight: 600;
+    }
+
+    footer > ul > .contact-btn > a {
+        color:white;
+    }
+
+    @media screen and (max-width: 700px) {
+        footer {
+            justify-content: center;
+        }
+    }
+</style>
