@@ -9,6 +9,16 @@ import Title from "../components/Title.astro";
 import SecondaryTitle from '../components/SecondaryTitle.astro';
 import WorkPlace from '../components/WorkPlace.astro';
 import EducationCard from '../components/EducationCard.astro';
+
+const projects = [
+	{
+		title:"C++ Multiplayer Card Game",
+		description:"A multiplayer C++ CLI game that connects players across a TCPnetwork for seamless cross-computer gameplay.",
+		tech:["C++", "Linux","Multithreading","OOP", "TCP/IP"],
+		image:"card_game_screenshot.webp",
+		repo: "https://github.com/Yardenregev/Projects/tree/main/pirates_speed_game"
+	}
+]
 ---
 
 <Layout title="Yarden Regev">
@@ -81,25 +91,12 @@ import EducationCard from '../components/EducationCard.astro';
 					link = "infinity_cert.pdf"
 					/>
 			</section>
-			<!-- TODO Add education and certifications section -->
 			<section class="projects">
 				<Title text='Projects'/>
 				<section>
-					<ProjectCard 
-					title='My Project #1'
-					description='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-					link='#'
-					/>
-					<ProjectCard 
-						title='My Project #2'
-						description='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-						link='#'
-					/>
-					<ProjectCard 
-						title='My Project #3'
-						description='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-						link='#'
-					/>
+					{projects.map((project) => (
+						<ProjectCard {...project} />
+					  ))}
 				</section>
 				
 			</section>
