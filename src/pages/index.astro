@@ -7,6 +7,7 @@ import ProjectCard from "../components/ProjectCard.astro";
 import SkillCard from "../components/SkillCard.astro";
 import Title from "../components/Title.astro";
 import SecondaryTitle from '../components/SecondaryTitle.astro';
+import WorkPlace from '../components/WorkPlace.astro';
 ---
 
 <Layout title="Yarden Regev">
@@ -19,10 +20,21 @@ import SecondaryTitle from '../components/SecondaryTitle.astro';
 					<Title text='Software Developer'/>
 					<Title text='3 years of experience'/>
 					<SecondaryTitle text='C C++ Python JavaScript'/>
-					<!-- TODO Add C, C++, Python and JavaScript -->
 				</article>
 			</section>
-			<!-- TODO Add work experience section talk about each company -->
+			<section class="work-experience">
+				<Title text='Work Experience'/>
+				<WorkPlace
+					title="Software Developer"
+					workplaceName="Cellium"
+					icon = "cellium_logo.jpg"
+					startDate = "2022"
+					endDate = "2024"
+					description = "Developed embedded software for cutting-edge signal relay devices that extend 5G and wireless coverage to areas with poor reception, such as parking lots and underground facilities. Played a key role in the full-stack development of a web platform for remote monitoring and control of deployed systems, ensuring real-time performance tracking and seamless management."
+					website = "https://www.linkedin.com/company/cellium/"
+				/>
+			</section>
+
 			<section class="skills">
 				<Title text='Skills & Technologies'/> <!-- TODO Consider changing this to experience rather than skills and technologies -->
 				<section>
@@ -109,6 +121,24 @@ import SecondaryTitle from '../components/SecondaryTitle.astro';
 		color: #1e1e1e;
 		font-style: italic;
 	}
+
+	.work-experience {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+		width: 100%;
+		align-items: center;
+		border-bottom: 1px solid rgba(30, 30, 30, 0.3);
+		padding: 0px 20px 100px 20px;
+	}
+
+	.work-experience > section {
+		display: flex;
+		gap: 40px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
 
 	.skills {
 		display: flex;
