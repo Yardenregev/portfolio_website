@@ -19,6 +19,33 @@ const projects = [
 		repo: "https://github.com/Yardenregev/Projects/tree/main/pirates_speed_game"
 	}
 ]
+
+const skills = [
+	{
+		title:"C",
+		description:`
+			Developed and optimized high-performance <strong>embedded software</strong> features.<br />
+            Worked in a <strong>real-time operating system (RTOS)</strong> environment.<br />
+            Focused on <strong>performance-oriented design</strong> and <strong>efficient resource management</strong>.
+        `
+	},
+	{
+		title:"C++",
+		description: `
+            Designed and implemented <strong>complex C++ features</strong> using <strong>OOP</strong> and the <strong>STL</strong>.<br />
+            Optimized for <strong>performance, memory usage, and concurrency</strong> in high-complexity systems.<br />
+            Worked with <strong>modern C++</strong> features to enhance efficiency.
+        `
+	},
+	{
+		title:"Python",
+		description:`
+            Developed <strong>scalable Django applications</strong> with optimized architecture.<br />
+            Designed <strong>efficient database models</strong> for maintainability and performance.<br />
+            Implemented <strong>reusable views and optimized controller logic</strong>.
+        `
+	}
+]
 ---
 
 <Layout title="Yarden Regev">
@@ -58,19 +85,9 @@ const projects = [
 			<section class="skills">
 				<Title text='Skills & Technologies'/>
 				<section>
-				<!-- TODO Consider naming the sub skills in list format -->
-					<SkillCard 
-						title='C'
-						description='Developed and optimized high-performance embedded software features within a real-time operating system (RTOS) environment using C, focusing on performance-oriented design and efficient resource management.'
-					/>
-					<SkillCard 
-						title='C++'
-						description='Designed and implemented complex C++ features using advanced OOP principles, the Standard Library (STL), and modern C++ features. Focused on optimizing performance, memory usage, and concurrency in high-complexity systems.'
-					/>
-					<SkillCard 
-						title='Python'
-						description='Developed scalable Django application. Focused on efficient database design, reusable views, and optimized controller logic for maintainable, high-performance systems.'
-					/>
+					{skills.map((skill) => (
+						<SkillCard {...skill} />
+					  ))}
 				</section>
 			</section>
 
@@ -92,7 +109,7 @@ const projects = [
 					/>
 			</section>
 			<section class="projects">
-				<Title text='Projects'/>
+				<Title text='Software Projects'/>
 				<section>
 					{projects.map((project) => (
 						<ProjectCard {...project} />
@@ -181,22 +198,26 @@ const projects = [
 }
 
 
-	.skills {
+	.skills { 
 		display: flex;
 		flex-direction: column;
-		gap: 50px;
+		gap: 40px;
 		width: 100%;
 		align-items: center;
-		border-bottom: 1px solid rgba(30, 30, 30, 0.3);
-		padding: 0px 20px 100px 20px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Lighter contrast for subtle separation */
+		padding: 0 20px 80px;
+		text-align: center;
 	}
 
 	.skills > section {
-		display: flex;
-		gap: 40px;
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+		gap: 30px;
 		justify-content: center;
+		max-width: 1200px; /* Prevents too much stretching on wide screens */
+		width: 100%;
 	}
+
 
 	.projects {
 		display: flex;
