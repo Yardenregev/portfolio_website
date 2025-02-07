@@ -86,10 +86,17 @@ const educations = [
 	}
 
 ]
+
+const contact = {
+	linked_in:"https://www.linkedin.com/in/yarden-regev-6613261b7",
+	github:"https://github.com/Yardenregev",
+	resume:"yarden_regev_resume.pdf",
+	email:"yardenregev11@gmail.com"
+}
 ---
 
 <Layout title="Yarden Regev">
-	<header><Navbar /></header>
+	<header><Navbar {...contact}/></header>
 		<main>
 			<section class="about">
 				<img src='linkedin_photo.jpeg' alt='profile picture'/>
@@ -132,7 +139,7 @@ const educations = [
 				
 			</section>
 		</main>
-		<Footer />
+		<Footer {...contact}/>
 </Layout>
 
 <style>
