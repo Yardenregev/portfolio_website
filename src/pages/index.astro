@@ -46,6 +46,46 @@ const skills = [
         `
 	}
 ]
+
+const work_experiences = [
+	{
+		title:"Software Developer",
+		workplaceName:"Cellium",
+		icon : "cellium_logo.jpg",
+		startDate : "2022",
+		endDate : "2024",
+		description : "Developed embedded software for cutting-edge signal relay devices that extend 5G and wireless coverage to areas with poor reception, such as parking lots and underground facilities. Played a key role in the full-stack development of a web platform for remote monitoring and control of deployed systems, ensuring real-time performance tracking and seamless management.",
+		website : "https://www.linkedin.com/company/cellium/"
+	},
+	{
+		title:"Software Developer",
+		workplaceName:"InfinityLabs R&D",
+		icon : "infinitylabs_rd_logo.jpg",
+		startDate : "2021",
+		endDate : "2022",
+		description : "Gained hands-on experience in C and C++ programming, system programming, and Linux tools. Applied OOP, data structures, and algorithms to solve problems. Developed networking software with TCP/IP and DNS, and optimized performance through multithreading. Worked in an Agile environment, honing skills in time estimation, effort optimization, and team collaboration. Strengthened soft skills like communication and technology research.",
+		website : "https://go.ilrd.co.il/lindn"
+	}
+]
+
+const educations = [
+	{
+		title:"AWS Certified Developer - Associate",
+		school:"Amazon Web Services (AWS)",
+		date:"2024",
+		icon:"amazon_web_services_logo.jpg",
+		link : "https://www.credly.com/badges/362fb61c-683e-41ce-a053-d92cb0a4e450/linked_in?t=skf0u1",
+	},
+
+	{
+		title:"Software Developer",
+		school:"InfinityLabs R&D",
+		date:"2021",
+		icon:"infinitylabs_rd_logo.jpg",
+		link : "infinity_cert.pdf",
+	}
+
+]
 ---
 
 <Layout title="Yarden Regev">
@@ -62,24 +102,9 @@ const skills = [
 			</section>
 			<section class="work-experience">
 				<Title text='Work Experience'/>
-				<WorkPlace
-					title="Software Developer"
-					workplaceName="Cellium"
-					icon = "cellium_logo.jpg"
-					startDate = "2022"
-					endDate = "2024"
-					description = "Developed embedded software for cutting-edge signal relay devices that extend 5G and wireless coverage to areas with poor reception, such as parking lots and underground facilities. Played a key role in the full-stack development of a web platform for remote monitoring and control of deployed systems, ensuring real-time performance tracking and seamless management."
-					website = "https://www.linkedin.com/company/cellium/"
-				/>
-				<WorkPlace
-					title="Software Developer"
-					workplaceName="InfinityLabs R&D"
-					icon = "infinitylabs_rd_logo.jpg"
-					startDate = "2021"
-					endDate = "2022"
-					description = "Gained hands-on experience in C and C++ programming, system programming, and Linux tools. Applied OOP, data structures, and algorithms to solve problems. Developed networking software with TCP/IP and DNS, and optimized performance through multithreading. Worked in an Agile environment, honing skills in time estimation, effort optimization, and team collaboration. Strengthened soft skills like communication and technology research."
-					website = "https://go.ilrd.co.il/lindn"
-				/>
+				{work_experiences.map((work_experience) => (
+					<WorkPlace {...work_experience} />
+				  ))}
 			</section>
 
 			<section class="skills">
@@ -93,20 +118,9 @@ const skills = [
 
 			<section class="education">
 				<Title text='Education & Certifications'/>
-				<EducationCard
-					title="AWS Certified Developer - Associate"
-					school="Amazon Web Services (AWS)"
-					date="2024"
-					icon="amazon_web_services_logo.jpg"
-					link = "https://www.credly.com/badges/362fb61c-683e-41ce-a053-d92cb0a4e450/linked_in?t=skf0u1"
-					/>
-				<EducationCard
-					title="Software Developer"
-					school="InfinityLabs R&D"
-					date="2021"
-					icon="infinitylabs_rd_logo.jpg"
-					link = "infinity_cert.pdf"
-					/>
+				{educations.map((education)=>(
+					<EducationCard {...education} />	
+				))}
 			</section>
 			<section class="projects">
 				<Title text='Software Projects'/>
