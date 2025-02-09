@@ -8,7 +8,7 @@ const { title, workplaceName, icon, startDate, endDate, description, website } =
         <h3 class="title">{title}</h3>
         <h4 class="workplace">{workplaceName}</h4>
         <p class="date">{startDate} - {endDate}</p>
-        <p class="description">{description}</p>
+        <p class="description" set:html={description}></p>
         {website && (
             <a class="website-link" href={website} target="_blank" rel="noopener noreferrer">
                 Visit Company Website
