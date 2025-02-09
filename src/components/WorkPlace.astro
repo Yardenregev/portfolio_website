@@ -1,13 +1,15 @@
 ---
 const { title, workplaceName, icon, startDate, endDate, description, website } = Astro.props
 ---
-
+<!-- 
 <article class="workplace-card">
     <img class="icon" src={icon} alt="workplace icon"/>
     <div class="content">
-        <h3 class="title">{title}</h3>
-        <h4 class="workplace">{workplaceName}</h4>
-        <p class="date">{startDate} - {endDate}</p>
+        <div class="header">
+            <h3 class="title">{title}</h3>
+            <h4 class="workplace">{workplaceName}</h4>
+            <p class="date">{startDate} - {endDate}</p>
+        </div>
         <p class="description" set:html={description}></p>
         {website && (
             <a class="website-link" href={website} target="_blank" rel="noopener noreferrer">
@@ -17,11 +19,10 @@ const { title, workplaceName, icon, startDate, endDate, description, website } =
     </div>
 </article>
 
-
 <style>
-    .workplace-card {
+.workplace-card {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Align content to the top */
     gap: 15px;
     max-width: 600px;
     padding: 20px;
@@ -50,6 +51,13 @@ const { title, workplaceName, icon, startDate, endDate, description, website } =
     display: flex;
     flex-direction: column;
     gap: 5px;
+    flex-grow: 1;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
 }
 
 .title {
@@ -75,6 +83,7 @@ const { title, workplaceName, icon, startDate, endDate, description, website } =
     font-size: 15px;
     color: #4a4a4a;
     line-height: 1.5;
+    margin-top: 5px;
 }
 
 .website-link {
@@ -94,5 +103,115 @@ const { title, workplaceName, icon, startDate, endDate, description, website } =
     background: #e0e0e0;
     transform: scale(1.05);
 }
+</style> -->
 
+<article class="workplace-card">
+    <img class="icon" src={icon} alt="workplace icon"/>
+    <div class="content">
+        <div class="header">
+            <div class="job-details">
+                <h3 class="title">{title}</h3>
+                <h4 class="workplace">{workplaceName}</h4>
+                <p class="date">{startDate} - {endDate}</p>
+            </div>
+            {website && (
+                <a class="website-link" href={website} target="_blank" rel="noopener noreferrer">
+                    Visit Company Website
+                </a>
+            )}
+        </div>
+        <p class="description" set:html={description}></p>
+    </div>
+</article>
+
+<style>
+.workplace-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    max-width: 600px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #1e1e1e;
+    transition: transform 0.2s ease-in-out;
+}
+
+.workplace-card:hover {
+    transform: translateY(-3px);
+}
+
+.icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #f5f5f5;
+    padding: 5px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 5px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between; /* Pushes elements apart */
+    align-items: center;
+    width: 100%;
+}
+
+.job-details {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e1e1e;
+    margin: 0;
+}
+
+.workplace {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+}
+
+.date {
+    font-size: 14px;
+    color: rgba(30, 30, 30, 0.6);
+}
+
+.description {
+    font-size: 15px;
+    color: #4a4a4a;
+    line-height: 1.5;
+    margin-top: 5px;
+}
+
+.website-link {
+    font-size: 14px;
+    color: #1e1e1e;
+    font-weight: 500;
+    text-decoration: none;
+    background: #f5f5f5;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.2s, transform 0.1s;
+    white-space: nowrap; /* Prevents wrapping */
+}
+
+.website-link:hover {
+    background: #e0e0e0;
+    transform: scale(1.05);
+}
 </style>
