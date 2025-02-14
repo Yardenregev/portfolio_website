@@ -1,9 +1,9 @@
 ---
-const { linked_in, github, resume, email} = Astro.props;
+const { name, linked_in, github, resume, email} = Astro.props;
 ---
 
 <nav class="navbar">
-    <span>Yarden Regev</span>
+    <span>{name}</span>
     <ul>
         <li><a href={linked_in} target="_blank">Linkedin</a></li>
         <li><a href={github} target="_blank">Github</a></li>

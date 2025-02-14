@@ -101,6 +101,7 @@ const educations = [
 ]
 
 const contact = {
+	name:"Yarden Regev",
 	linked_in:"https://www.linkedin.com/in/yarden-regev-6613261b7",
 	github:"https://github.com/Yardenregev",
 	resume:"yarden_regev_resume.pdf",
@@ -112,10 +113,15 @@ const contact = {
 	<header><Navbar {...contact}/></header>
 		<main>
 			<section class="about">
+				<!-- TODO:
+				 1. Make title say: "3+ years of hands on experience"
+				 2. Compact into an about component to align to standard
+				 3. Possibly change the layout of the profile picture
+				 -->
 				<img src='linkedin_photo.jpeg' alt='profile picture'/>
 				<article>
 					<p>Hi!, I'm Yarden Regev</p>
-					<Title text='Software Developer'/>
+					<Title text='Software Developer'/> 
 					<Title text='3 years of experience'/>
 					<SecondaryTitle text='C, C++, Python'/>
 				</article>

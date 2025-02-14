@@ -1,10 +1,10 @@
 ---
-const { linked_in, github, resume, email} = Astro.props;
+const { name, linked_in, github, resume, email} = Astro.props;
 ---
 
 
 <footer class="footer">
-    <span>Yarden Regev</span>
+    <span>{name}</span>
     <ul>
         <li><a href={linked_in} target="_blank">Linkedin</a></li>
         <li><a href={github} target="_blank">Github</a></li>
@@ -23,6 +23,10 @@ const { linked_in, github, resume, email} = Astro.props;
         border-top: 1px solid rgb(30, 30, 30, 0.3);
         text-align: center;
         padding: 20px;
+    }
+
+    footer > span {
+        font-weight: 600;
     }
 
     footer > ul {
