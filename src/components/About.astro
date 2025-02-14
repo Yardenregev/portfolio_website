@@ -1,0 +1,36 @@
+---
+import Title from "../components/Title.astro";
+import SecondaryTitle from '../components/SecondaryTitle.astro';
+
+const { intro, titles, secondaryTitles, image } = Astro.props
+---
+<img src={image} alt='profile picture'/>
+<article>
+    <p>{intro}</p>
+    {titles.map((title) => (
+        <Title text={title} />
+    ))}
+    {secondaryTitles.map((secondaryTitle) => (
+        <SecondaryTitle text={secondaryTitle} />
+    ))}
+</article>
+
+<style>
+    img {
+		width: 150px;
+		border-radius: 9999px;
+		object-fit: cover;
+	}
+
+	article {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	article > p {
+		color: #1e1e1e;
+		font-style: italic;
+		font-size: 24px;
+	}
+</style>

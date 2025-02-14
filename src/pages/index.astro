@@ -1,53 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Button from "../components/Button.astro";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import SkillCard from "../components/SkillCard.astro";
 import Title from "../components/Title.astro";
-import SecondaryTitle from '../components/SecondaryTitle.astro';
 import WorkPlace from '../components/WorkPlace.astro';
 import EducationCard from '../components/EducationCard.astro';
+import About from '../components/About.astro';
 
-const projects = [
-	{
-		title:"C++ Multiplayer Card Game",
-		description:"A multiplayer C++ CLI game that connects players across a TCP network for seamless cross-computer gameplay.",
-		tech:["C++", "Linux","Multithreading","OOP", "TCP/IP"],
-		image:"card_game_screenshot.webp",
-		repo: "https://github.com/Yardenregev/pirates_speed_game"
-	}
-]
+const contactInfo = {
+	name:"Yarden Regev",
+	linked_in:"https://www.linkedin.com/in/yarden-regev-6613261b7",
+	github:"https://github.com/Yardenregev",
+	resume:"yarden_regev_resume.pdf",
+	email:"yardenregev11@gmail.com"
+}
 
-const skills = [
-	{
-		title:"C",
-		description:`
-			Developed and optimized high-performance <strong>embedded software</strong> features.<br />
-            Worked in a <strong>real-time operating system (RTOS)</strong> environment.<br />
-            Focused on <strong>performance-oriented design</strong> and <strong>efficient resource management</strong>.
-        `
-	},
-	{
-		title:"C++",
-		description: `
-            Designed and implemented <strong>complex C++ features</strong> using <strong>OOP</strong> and the <strong>STL</strong>.<br />
-            Optimized for <strong>performance, memory usage, and concurrency</strong> in high-complexity systems.<br />
-            Worked with <strong>modern C++</strong> features to enhance efficiency.
-        `
-	},
-	{
-		title:"Python",
-		description:`
-            Developed <strong>scalable Django applications</strong> with optimized architecture.<br />
-            Designed <strong>efficient database models</strong> for maintainability and performance.<br />
-            Implemented <strong>reusable views and optimized controller logic</strong>.
-        `
-	}
-]
 
-const work_experiences = [
+const aboutInfo = {
+	image: 'linkedin_photo.jpeg',
+	titles: ['Software Developer', '3 years of experience'],
+	secondaryTitles: ['C, C++, Python'],
+	intro: 'Hi!, I\'m Yarden Regev'
+}
+
+const workExperiencesInfo = [
 	{
 		title:"Software Developer",
 		workplaceName:"Cellium",
@@ -81,7 +59,36 @@ const work_experiences = [
 	}
 ]
 
-const educations = [
+const skillsInfo = [
+	{
+		title:"C",
+		description:`
+			Developed and optimized high-performance <strong>embedded software</strong> features.<br />
+            Worked in a <strong>real-time operating system (RTOS)</strong> environment.<br />
+            Focused on <strong>performance-oriented design</strong> and <strong>efficient resource management</strong>.
+        `
+	},
+	{
+		title:"C++",
+		description: `
+            Designed and implemented <strong>complex C++ features</strong> using <strong>OOP</strong> and the <strong>STL</strong>.<br />
+            Optimized for <strong>performance, memory usage, and concurrency</strong> in high-complexity systems.<br />
+            Worked with <strong>modern C++</strong> features to enhance efficiency.
+        `
+	},
+	{
+		title:"Python",
+		description:`
+            Developed <strong>scalable Django applications</strong> with optimized architecture.<br />
+            Designed <strong>efficient database models</strong> for maintainability and performance.<br />
+            Implemented <strong>reusable views and optimized controller logic</strong>.
+        `
+	}
+]
+
+
+
+const educationsInfo = [
 	{
 		title:"AWS Certified Developer - Associate",
 		school:"Amazon Web Services (AWS)",
@@ -100,35 +107,33 @@ const educations = [
 
 ]
 
-const contact = {
-	name:"Yarden Regev",
-	linked_in:"https://www.linkedin.com/in/yarden-regev-6613261b7",
-	github:"https://github.com/Yardenregev",
-	resume:"yarden_regev_resume.pdf",
-	email:"yardenregev11@gmail.com"
-}
+const projectsInfo = [
+	{
+		title:"C++ Multiplayer Card Game",
+		description:"A multiplayer C++ CLI game that connects players across a TCP network for seamless cross-computer gameplay.",
+		tech:["C++", "Linux","Multithreading","OOP", "TCP/IP"],
+		image:"card_game_screenshot.webp",
+		repo: "https://github.com/Yardenregev/pirates_speed_game"
+	}
+]
+
+
+
 ---
 
 <Layout title="Yarden Regev">
-	<header><Navbar {...contact}/></header>
+	<header><Navbar {...contactInfo}/></header>
 		<main>
 			<section class="about">
 				<!-- TODO:
 				 1. Make title say: "3+ years of hands on experience"
-				 2. Compact into an about component to align to standard
 				 3. Possibly change the layout of the profile picture
 				 -->
-				<img src='linkedin_photo.jpeg' alt='profile picture'/>
-				<article>
-					<p>Hi!, I'm Yarden Regev</p>
-					<Title text='Software Developer'/> 
-					<Title text='3 years of experience'/>
-					<SecondaryTitle text='C, C++, Python'/>
-				</article>
+				<About {...aboutInfo}/>
 			</section>
 			<section class="work-experience">
 				<Title text='Work Experience'/>
-				{work_experiences.map((work_experience) => (
+				{workExperiencesInfo.map((work_experience) => (
 					<WorkPlace {...work_experience} />
 				  ))}
 			</section>
@@ -136,7 +141,7 @@ const contact = {
 			<section class="skills">
 				<Title text='Skills & Technologies'/>
 				<section>
-					{skills.map((skill) => (
+					{skillsInfo.map((skill) => (
 						<SkillCard {...skill} />
 					  ))}
 				</section>
@@ -144,21 +149,21 @@ const contact = {
 
 			<section class="education">
 				<Title text='Education & Certifications'/>
-				{educations.map((education)=>(
+				{educationsInfo.map((education)=>(
 					<EducationCard {...education} />	
 				))}
 			</section>
 			<section class="projects">
 				<Title text='Software Projects'/>
 				<section>
-					{projects.map((project) => (
+					{projectsInfo.map((project) => (
 						<ProjectCard {...project} />
 					  ))}
 				</section>
 				
 			</section>
 		</main>
-		<Footer {...contact}/>
+		<Footer {...contactInfo}/>
 </Layout>
 
 <style>
@@ -182,25 +187,6 @@ const contact = {
 		text-align: center;
 		border-bottom: 1px solid rgb(30, 30, 30, 0.3);
 		padding: 0 20px;
-	}
-
-
-	.about > img {
-		width: 150px;
-		border-radius: 9999px;
-		object-fit: cover;
-	}
-
-	.about > article {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-	.about > article > p {
-		color: #1e1e1e;
-		font-style: italic;
-		font-size: 24px;
 	}
 
 	.work-experience {
