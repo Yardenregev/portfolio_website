@@ -1,5 +1,6 @@
 ---
-const { text } = Astro.props
+// Title.astro
+const { text } = Astro.props;
 ---
 
 <h2 class="title">
@@ -7,18 +8,42 @@ const { text } = Astro.props
 </h2>
 
 <style>
-    h2 {
-        max-width: 450px;
-        font-size: 40px;
+    .title {
+        width: 100%;
+        font-size: 2.5rem;
         text-transform: uppercase;
         margin: 0;
-        color: #1e1e1e;
-        text-align: center;
-        font-weight: 500;
-        background: linear-gradient(89.56deg, #1E1E1E 44.7%, rgba(30, 30, 30, 0) 137.42%);
+        white-space: nowrap;
+        background: #1e1e1e; /* Changed from gradient to solid color */
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        text-fill-color: transparent;
+        opacity: 0;
+        animation: fadeIn 0.5s ease forwards 0.2s;
+        text-align: center;
+    }
+
+    @media (max-width: 1200px) {
+        .title {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .title {
+            font-size: 1.75rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .title {
+            font-size: 1.25rem;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .title {
+            font-size: 1rem;
+        }
     }
 </style>

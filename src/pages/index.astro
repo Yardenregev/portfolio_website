@@ -20,7 +20,7 @@ const contactInfo = {
 
 const aboutInfo = {
 	image: 'linkedin_photo.jpeg',
-	titles: ['Software Developer', '3 years of experience'],
+	titles: ['Software Developer', '3+ years of hands on experience'],
 	secondaryTitles: ['C, C++, Python'],
 	intro: 'Hi!, I\'m Yarden Regev'
 }
@@ -125,12 +125,9 @@ const projectsInfo = [
 	<header><Navbar {...contactInfo}/></header>
 		<main>
 			<section class="about">
-				<!-- TODO:
-				 1. Make title say: "3+ years of hands on experience"
-				 3. Possibly change the layout of the profile picture
-				 -->
 				<About {...aboutInfo}/>
 			</section>
+
 			<section class="work-experience">
 				<Title text='Work Experience'/>
 				{workExperiencesInfo.map((work_experience) => (
