@@ -3,7 +3,7 @@ const { linked_in, github, resume, email} = Astro.props;
 ---
 
 
-<footer>
+<footer class="footer">
     <span>Yarden Regev</span>
     <ul>
         <li><a href={linked_in} target="_blank">Linkedin</a></li>
@@ -57,8 +57,42 @@ const { linked_in, github, resume, email} = Astro.props;
     }
 
     @media screen and (max-width: 700px) {
-        footer {
-            justify-content: center;
-        }
+    footer {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(15px) saturate(150%);
+        border-top: 1px solid rgba(30, 30, 30, 0.3);
     }
+
+    footer > ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 8px; /* Keeps items neatly spaced */
+        font-size: 14px;
+        padding: 0;
+        margin: 0;
+    }
+
+    footer > ul > li {
+        white-space: nowrap;
+    }
+
+    footer > ul > .contact-btn {
+        font-size: 14px;
+        padding: 5px 8px;
+        border-radius: 8px;
+        flex-shrink: 1;
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
 </style>
